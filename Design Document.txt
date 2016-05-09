@@ -1,0 +1,44 @@
+Asahi Nino
+Advanced Programming
+Project 1: B+ Tree
+Design Document
+
+Test Cases:
+1. Insert into empty leaf with no parent:
+	Methods tested:
+		- LNode::insertKey
+		- LNode::addKey
+	Desired outcome:
+		- one node where keys has one value: 1
+2. Fill leaf with no parent:
+	Methods tested:
+		- LNode::insertKey
+		- LNode::addKey (tests whether keys are added in correct location)
+	Desired outcome:
+		- one node where keys has 6 values: 1,2,3,4,5,6
+3. Insert into full leaf with no parent:
+	Methods tested:
+		- LNode::insertKey
+		- LNode::addKey
+		- LNode::split
+		- INode::insertKey
+	Desired outcome:
+		- fill one node then add another to force split
+		- split first node into two appropriately
+		- pass middle value up to new inner node parent
+		- set parent’s children to first leaf node and next
+4. Insert into full leaf with full parent:
+	Methods tested:
+		- BPlusTree::insert
+		- BPlusTree::find
+		- INode::getLocation
+		- LNode::insertKey
+		- LNode::addKey
+		- LNode::split
+		- INode::insertKey
+		- INode::split
+	Desired outcome:
+		- fill tree with values (1-24)
+		- force multiple leaf node splits until parent is full
+		- insert additional value to force parent to split (25)
+		- create new parent with two inner node children
